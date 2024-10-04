@@ -50,6 +50,27 @@ The code [`TOIS24-pCFE_MovieLens_DataAugmentation&AutoTagging.ipynb`](https://dr
        sorted_indices = tfidf_row.argsort()[::-1][:top_n]
        return [feature_names[i] for i in sorted_indices]
 
+   # Generating Text Embeddings with OpenAI's API
+
+The code  [`TOIS24-pCFE_MovieLens_DataAugmentation&AutoTagging.ipynb`](https://colab.research.google.com/drive/1f7ycCIRbkSIoMWwJO95UjN1FXorLmSEG?usp=sharing)  builds on the **auto-tagging** step by extracting embeddings from two sets of features using a given OpenAI model (e.g., **text-embedding-ada-002**):
+
+1. **Title, Genre, Tags** (original tags)
+2. **Title, Genre, Generated Tags** (tags from the previous auto-tagging step)
+
+### Key Steps:
+
+1. **Prepare the Data**:  
+   Combines the **title**, **genre**, and either **tags** or **generated tags** into a single text field for each item.
+
+2. **Generate Embeddings**:  
+   The `get_embedding()` function retrieves text embeddings from OpenAI's API, with retries in case of rate limits.
+
+3. **Store Results**:  
+   Embeddings are added to the DataFrame for further analysis.
+
+The embeddings provide a semantic representation of the item profiles, useful for tasks like clustering or similarity search.
+
+
    # Apply the tagging function to each row in the DataFrame
    df_items_enriched['generated_tags'] = [get_top_tags(tfidf_row, feature_names)
                                               for tfidf_row in tfidf_matrix.toarray()]
