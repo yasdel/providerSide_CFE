@@ -52,7 +52,7 @@ The code [`TOIS24-pCFE_MovieLens_DataAugmentation&AutoTagging.ipynb`](https://dr
 
    # Generating Text Embeddings with OpenAI's API
 
-The code  [`TOIS24-pCFE_MovieLens_DataAugmentation&AutoTagging.ipynb`](https://colab.research.google.com/drive/1f7ycCIRbkSIoMWwJO95UjN1FXorLmSEG?usp=sharing)  builds on the **auto-tagging** step by extracting embeddings from two sets of features using a given OpenAI model (e.g., **text-embedding-ada-002**):
+The code  [`TOIS24-pCFE_MovieLens_ExtEmbeddings.ipynb`](https://colab.research.google.com/drive/1f7ycCIRbkSIoMWwJO95UjN1FXorLmSEG?usp=sharing) extracts embeddings from two sets of features (building on the **auto-tagging** step) using a given OpenAI model (e.g., **text-embedding-ada-002**):
 
 1. **Title, Genre, Tags** (original tags)
 2. **Title, Genre, Generated Tags** (tags from the previous auto-tagging step)
